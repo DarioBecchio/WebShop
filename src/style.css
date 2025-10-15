@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+ul {
+  list-style: none;
+}
+
 body {
   font-family: "Courier Prime", monospace;
   background-color: var(--ws-white);
