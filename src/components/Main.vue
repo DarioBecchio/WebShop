@@ -62,14 +62,16 @@ export default {
               class="carousel-item"
               v-for="(file, index) in files"
               :key="file.id"
-              :class="{ active: index === 0 }"
+              :class="{ active: index === 0, 'd-flex': index === activeIndex }"
             >
-              <div class="description">
-                <h2>{{ file.title }}</h2>
-                <p>{{ file.content }}</p>
-              </div>
-              <div class="images">
-                <img :src="file.image" class="d-block w-100" alt="..." />
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="description">
+                  <h2 class="primary">{{ file.title }}</h2>
+                  <p>{{ file.content }}</p>
+                </div>
+                <div class="images">
+                  <img :src="file.image" class="d-block w-100" alt="..." />
+                </div>
               </div>
             </div>
           </div>
@@ -79,7 +81,10 @@ export default {
             data-bs-target="#carouselExampleAutoplaying"
             data-bs-slide="prev"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span
+              class="carousel-control-prev-icon secondary"
+              aria-hidden="true"
+            ></span>
             <span class="visually-hidden">Previous</span>
           </button>
           <button
@@ -88,7 +93,10 @@ export default {
             data-bs-target="#carouselExampleAutoplaying"
             data-bs-slide="next"
           >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span
+              class="carousel-control-next-icon secondary"
+              aria-hidden="true"
+            ></span>
             <span class="visually-hidden">Next</span>
           </button>
         </div>
@@ -97,4 +105,32 @@ export default {
   </main>
 </template>
 
-<style></style>
+<style>
+main {
+  width: 100%;
+}
+
+.carousel-item {
+  height: 100%;
+}
+
+.carousel-item .d-flex {
+  gap: 2rem;
+}
+
+.description {
+  flex: 1;
+  color: #333;
+  padding: 1rem;
+}
+
+.images {
+  flex: 1;
+}
+
+.images img {
+  border-radius: 12px;
+  object-fit: cover;
+  height: 400px;
+}
+</style>
