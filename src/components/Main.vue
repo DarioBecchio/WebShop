@@ -43,6 +43,15 @@ export default {
           image: "/img/modern-art.jpg",
         },
       ],
+
+      menu: [
+        "Make up",
+        "Profumi",
+        "Trattamento viso",
+        "Trattamento corpo",
+        "Capelli",
+        "Marche",
+      ],
     };
   },
 };
@@ -82,7 +91,7 @@ export default {
             data-bs-slide="prev"
           >
             <span
-              class="carousel-control-prev-icon secondary"
+              class="carousel-control-prev-icon dark"
               aria-hidden="true"
             ></span>
             <span class="visually-hidden">Previous</span>
@@ -105,9 +114,10 @@ export default {
   </main>
 </template>
 
-<style>
+<style scoped>
 main {
   width: 100%;
+  margin-top: 1rem;
 }
 
 .carousel-item {
@@ -132,5 +142,42 @@ main {
   border-radius: 12px;
   object-fit: cover;
   height: 400px;
+}
+
+#carouselExampleAutoplaying {
+  position: relative;
+}
+
+/* Sposta le frecce verso l’esterno */
+#carouselExampleAutoplaying .carousel-control-prev,
+#carouselExampleAutoplaying .carousel-control-next {
+  width: auto; /* Non occupano spazio e non coprono il contenuto */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+
+/* Sposta verso sinistra/destra */
+#carouselExampleAutoplaying .carousel-control-prev {
+  left: -60px; /* puoi aumentare/diminuire per uscire di più */
+}
+
+#carouselExampleAutoplaying .carousel-control-next {
+  right: -60px;
+}
+
+/* opzionale: rendi le frecce più visibili */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(0.5) brightness(1.5); /* scurisce o schiarisce */
+}
+
+@media (max-width: 768px) {
+  #carouselExampleAutoplaying .carousel-control-prev {
+    left: -30px;
+  }
+  #carouselExampleAutoplaying .carousel-control-next {
+    right: -30px;
+  }
 }
 </style>
