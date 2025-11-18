@@ -7,6 +7,18 @@ export default {
     Searchbar,
     Logo,
   },
+  data() {
+    return {
+      menu: [
+        "Make up",
+        "Profumi",
+        "Trattamento viso",
+        "Trattamento corpo",
+        "Capelli",
+        "Marche",
+      ],
+    };
+  },
 };
 </script>
 

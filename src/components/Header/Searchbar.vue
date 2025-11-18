@@ -1,18 +1,27 @@
 <script>
-import { store } from "../store.js";
+import { store } from "../../store.js";
 export default {
   name: "Searchbar",
   data() {
     return {
-      state,
+      store,
     };
+  },
+  methods: {
+    search,
   },
 };
 </script>
 
 <template>
   <div class="leftside search-container input-group align-self-center w-25">
-    <input class="form-control" type="text" placeholder="Cerca..." />
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Cerca..."
+      v-model="store.searchtext"
+      @keyup.enter="test"
+    />
     <i class="fa-solid fa-magnifying-glass"></i>
   </div>
 </template>

@@ -1,6 +1,10 @@
 import { reactive } from "vue";
 
-export const state = reactive({
-    searchText: "",
+export const store = reactive({
+    base_api_url: 'test123',
+    searchtext: "",
     loading: true,
 })
+
+
+

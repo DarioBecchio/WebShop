@@ -43,15 +43,6 @@ export default {
           image: "/img/modern-art.jpg",
         },
       ],
-
-      menu: [
-        "Make up",
-        "Profumi",
-        "Trattamento viso",
-        "Trattamento corpo",
-        "Capelli",
-        "Marche",
-      ],
     };
   },
 };
