@@ -7,9 +7,7 @@ export default {
       store,
     };
   },
-  methods: {
-    search,
-  },
+  methods: {},
 };
 </script>
 
