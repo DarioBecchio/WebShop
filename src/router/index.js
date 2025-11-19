@@ -4,6 +4,7 @@ import Account from "../pages/Account.vue";
 import SearchResults from "../pages/SearchResults.vue";
 import Main from "../components/Main.vue";
 import WishList from "../pages/WishList.vue";
+import Category from "../pages/Category.vue";
 
 
 
@@ -33,6 +34,11 @@ const routes = [
         path: "/wishlist",
         name: "WishList",
         component: WishList
+    },
+    {
+        path: "/category/:category",
+        name: "Category",
+        component: Category
     }
 ]
 
