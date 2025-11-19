@@ -17,15 +17,20 @@ export default {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
     <div class="container">
+      <!-- Menù a comparsa -->
       <div
-        class="collapse navbar-collapse justify-content-center"
+        class="collapse navbar-collapse justify-content-center container-fluid"
         id="navbarNav"
       >
         <ul class="navbar-nav">
           <li class="nav-item" v-for="(item, index) in menu" :key="index">
-            <a class="nav-link" href="#">{{ item }}</a>
+            <Router-link
+              class="nav-link"
+              :to="{ name: 'Category', params: { category: item } }"
+              >{{ item }}
+            </Router-link>
           </li>
         </ul>
       </div>

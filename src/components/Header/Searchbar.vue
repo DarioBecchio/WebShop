@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-  <div class="leftside search-container input-group align-self-center w-25">
+  <div class="leftside search-container input-group align-self-center w-80">
     <input
       class="form-control"
       type="text"

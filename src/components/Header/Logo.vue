@@ -19,7 +19,6 @@ export default {
 
 <style scoped>
 .logo {
-  width: 40%;
   height: 70px;
   display: flex;
   align-items: center;
