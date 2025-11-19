@@ -7,7 +7,15 @@ export default {
       store,
     };
   },
-  methods: {},
+  methods: {
+    test() {
+      // Naviga verso la pagina dei risultati passando il testo della ricerca come query
+      this.$router.push({
+        path: "/searchresults",
+        query: { q: this.store.searchtext },
+      });
+    },
+  },
 };
 </script>
 

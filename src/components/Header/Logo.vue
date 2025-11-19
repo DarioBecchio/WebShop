@@ -6,12 +6,14 @@ export default {
 
 <template>
   <div class="logo">
-    <img
-      src="/img/crocus-1279508_1280.png"
-      alt=""
-      class="img-fluid"
-      style="max-height: 60px"
-    />
+    <RouterLink to="/">
+      <img
+        src="/img/crocus-1279508_1280.png"
+        alt=""
+        class="img-fluid"
+        style="max-height: 60px"
+      />
+    </RouterLink>
   </div>
 </template>
 
