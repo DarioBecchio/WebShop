@@ -69,7 +69,7 @@ export default {
 /* Menu mobile “via di mezzo” */
 .mobile-menu {
   position: absolute;
-  top: 100%; /* subito sotto il wrapper/bottone */
+  top: 60px; /* subito sotto il wrapper/bottone */
   left: 0;
   max-height: 70vh; /* limita altezza, scrollabile se serve */
   overflow-y: auto;

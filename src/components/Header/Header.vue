@@ -41,7 +41,6 @@ export default {
         <HeaderRight></HeaderRight>
       </div>
     </div>
-
     <!-- Navbar desktop -->
     <div class="d-none d-md-block mt-2">
       <Navbar />

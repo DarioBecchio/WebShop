@@ -24,8 +24,21 @@ export default {
   align-items: center;
   justify-content: center;
 }
+/* Logo desktop */
+.logo-img {
+  max-height: 60px;
+  width: auto;
+  transition: all 0.3s ease;
+}
 
-img {
-  height: 100%;
+/* Mobile: riduce il logo */
+@media (max-width: 767px) {
+  .logo {
+    height: 50px; /* header più piccolo su mobile */
+  }
+
+  .logo-img {
+    max-height: 40px; /* logo più piccolo */
+  }
 }
 </style>

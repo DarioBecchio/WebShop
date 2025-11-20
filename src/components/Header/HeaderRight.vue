@@ -24,24 +24,51 @@ export default {
 </template>
 
 <style scoped>
-.rightside {
-  width: 30%;
+.header-right {
   display: flex;
-  justify-content: end;
-}
-.header-right .icon {
-  font-size: 1.2rem;
-  color: #333;
+  align-items: center;
+  gap: 1.5rem; /* distanza tra icone desktop */
+  font-size: 1.5rem; /* dimensione icone desktop */
 }
 
+/* Icone */
+.header-right .icon {
+  color: #333;
+  font-size: inherit; /* eredita la dimensione del container */
+}
+
+/* Pallino carrello */
 .cart-count {
   position: absolute;
   top: -4px;
   right: -6px;
   background: red;
   color: #fff;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   border-radius: 50%;
   padding: 2px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile: ridimensionamento */
+@media (max-width: 767px) {
+  .header-right {
+    gap: 1rem;
+    font-size: 1.2rem; /* icone più piccole */
+  }
+
+  .cart-count {
+    font-size: 0.65rem;
+    padding: 1px 4px;
+    top: -3px;
+    right: -4px;
+  }
+
+  /* Opzionale: nascondere la wishlist su mobile */
+  .header-right .d-md-block {
+    display: none !important;
+  }
 }
 </style>
