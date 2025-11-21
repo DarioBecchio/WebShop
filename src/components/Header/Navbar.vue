@@ -51,4 +51,18 @@ export default {
 li {
   padding: 1rem;
 }
+
+@media (max-width: 768px) {
+  /* Contenitore nav scrollabile */
+  .nav-link {
+    padding: 0.2rem 0.4rem !important;
+    font-size: 0.75rem !important;
+    white-space: nowrap;
+  }
+
+  .navbar {
+    padding-top: 0.1rem !important;
+    padding-bottom: 0.1rem !important;
+  }
+}
 </style>

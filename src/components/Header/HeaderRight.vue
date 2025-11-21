@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <div class="header-right d-flex align-items-center gap-3">
+  <div class="header-right d-flex align-items-center gap-1 gap-md-3">
     <RouterLink to="/account" class="icon">
       <i class="fa-regular fa-user"></i>
     </RouterLink>

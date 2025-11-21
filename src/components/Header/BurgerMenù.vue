@@ -32,7 +32,7 @@ export default {
       @click="toggleMenu"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon"></span>
+      <i class="fa-solid fa-bars fa-lg"></i>
     </button>
 
     <!-- Menu a tendina mobile -->
@@ -65,17 +65,32 @@ export default {
 .burger-menu-wrapper {
   position: relative; /* menu relativo all'header */
 }
-
+.burger-menu-wrapper button {
+  border: none; /* rimuove il bordo */
+  background: transparent; /* sfondo trasparente */
+  padding: 0; /* rimuove padding extra */
+  outline: none; /* rimuove il focus outline */
+  cursor: pointer; /* cambia il cursore su hover */
+  color: #333; /* colore icona */
+}
 /* Menu mobile “via di mezzo” */
 .mobile-menu {
   position: absolute;
-  top: 60px; /* subito sotto il wrapper/bottone */
+  top: 20px; /* subito sotto il wrapper/bottone */
   left: 0;
   max-height: 70vh; /* limita altezza, scrollabile se serve */
   overflow-y: auto;
   z-index: 1050;
   border-radius: 0 0 8px 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  outline: none;
+  box-shadow: none;
+}
+
+.burger-menu-wrapper button:focus,
+.burger-menu-wrapper button:active {
+  outline: none;
+  box-shadow: none;
 }
 
 /* Animazione slide-down */
