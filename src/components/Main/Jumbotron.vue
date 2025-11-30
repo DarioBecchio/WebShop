@@ -48,60 +48,6 @@ export default {
 };
 </script>
 
-<!-- <template>
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <div
-        id="carouselExampleAutoplaying"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-inner">
-          <div
-            class="carousel-item"
-            v-for="(file, index) in files"
-            :key="file.id"
-            :class="{ active: index === 0, 'd-flex': index === activeIndex }"
-          >
-            <div class="d-flex align-items-center justify-content-between">
-              <div class="description">
-                <h2 class="primary">{{ file.title }}</h2>
-                <p>{{ file.content }}</p>
-              </div>
-              <div class="images">
-                <img :src="file.image" class="d-block w-100" alt="..." />
-              </div>
-            </div>
-          </div>
-        </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleAutoplaying"
-          data-bs-slide="prev"
-        >
-          <span
-            class="carousel-control-prev-icon dark"
-            aria-hidden="true"
-          ></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleAutoplaying"
-          data-bs-slide="next"
-        >
-          <span
-            class="carousel-control-next-icon secondary"
-            aria-hidden="true"
-          ></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</template> -->
 <template>
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
@@ -177,6 +123,27 @@ export default {
   font-size: 0.95rem;
 }
 
+@media (max-width: 1014px) and (min-width: 768px) {
+  .images {
+    flex: 6 !important; /* L'immagine occupa meno spazio */
+  }
+
+  .description {
+    flex: 6 !important; /* Il testo prende più spazio */
+    padding-left: 20px;
+    text-align: left !important; /* Evita l’allineamento centrale su desktop */
+  }
+
+  .description .title {
+    font-size: 1.8rem;
+  }
+
+  .description .content {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
 @media (min-width: 768px) {
   #carouselExampleAutoplaying {
     position: relative;
@@ -198,8 +165,8 @@ export default {
 
   .carousel-button {
     position: absolute;
-    top: 225px; /* metà di 450px */
-    transform: translateY(0);
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
@@ -238,10 +205,10 @@ export default {
 /* Desktop: frecce ai lati esterni */
 @media (min-width: 768px) {
   .carousel-control-prev.carousel-button {
-    left: -60px;
+    left: -40px;
   }
   .carousel-control-next.carousel-button {
-    right: -60px;
+    right: -40px;
   }
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
@@ -255,10 +222,10 @@ export default {
 /* Mobile: frecce rientrano nei bordi del carosello */
 @media (max-width: 767px) {
   .carousel-control-prev.carousel-button {
-    left: 10px;
+    left: -10px;
   }
   .carousel-control-next.carousel-button {
-    right: 10px;
+    right: -10px;
   }
   .carousel-control-prev-icon,
   .carousel-control-next-icon {

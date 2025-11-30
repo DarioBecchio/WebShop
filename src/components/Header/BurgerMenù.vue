@@ -1,10 +1,11 @@
 <script>
+import { store } from "../../stores/product";
 export default {
   name: "BurgerMenù",
   data() {
     return {
       isOpen: false,
-      searchQuery: "",
+      store,
       categories: [
         "Make up",
         "Profumi",
@@ -18,6 +19,17 @@ export default {
   methods: {
     toggleMenu() {
       this.isOpen = !this.isOpen; // apre/chiude il menu
+    },
+    closeMenu() {
+      this.isOpen = false;
+    },
+    test() {
+      if (!this.$router) return;
+      // Naviga verso la pagina dei risultati passando il testo della ricerca come query
+      this.$router.push({
+        path: "/searchresults",
+        query: { q: this.store.searchtext || "" },
+      });
     },
   },
 };
@@ -40,10 +52,11 @@ export default {
       <div v-if="isOpen" class="mobile-menu bg-light p-3 shadow-sm">
         <!-- Barra di ricerca mobile -->
         <input
-          v-model="searchQuery"
           type="text"
           class="form-control mb-3"
           placeholder="Cerca..."
+          v-model="store.searchtext"
+          @keyup.enter="test"
         />
 
         <!-- Elenco categorie mobile -->
@@ -53,7 +66,13 @@ export default {
             :key="index"
             class="list-group-item"
           >
-            {{ category }}
+            <RouterLink
+              class="d-block py-2 px-3 text-decoration-none text-dark"
+              :to="{ name: 'Category', params: { category } }"
+              @click="closeMenu"
+            >
+              {{ category }}
+            </RouterLink>
           </li>
         </ul>
       </div>

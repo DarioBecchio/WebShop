@@ -5,26 +5,34 @@ export default {
 </script>
 
 <template>
-  <h1>Category</h1>
-  <!-- <div class="category-page container py-4">
-    <h1>Prodotti: {{ categoryName }}</h1>
+  <div class="container py-4 layout">
+    <h1 class="mb-4">Catalogo Prodotti</h1>
+    <p class="text-muted mb-4">Griglia responsive: 5 / 4 / 1 come richiesto.</p>
 
-    <div v-if="filteredProducts.length === 0">
-      <p>Nessun prodotto trovato in questa categoria.</p>
-    </div>
-
-    <div class="products-grid" v-else>
+    <div class="row g-3">
       <div
-        class="product-card"
-        v-for="product in filteredProducts"
-        :key="product.id"
+        v-for="p in products"
+        :key="p.id"
+        class="col-12 col-md-3 col-lg-2-4 col-xl-2-4 custom-col layout"
       >
-        <img :src="product.image" alt="" />
-        <h3>{{ product.title }}</h3>
-        <p>{{ product.content }}</p>
+        <div class="card h-100 shadow-sm">
+          <img :src="p.image" class="card-img-top" :alt="p.title" />
+
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ p.title }}</h5>
+            <p class="card-text text-muted">{{ p.description }}</p>
+
+            <div
+              class="mt-auto d-flex justify-content-between align-items-center"
+            >
+              <strong>€{{ p.price }}</strong>
+              <button class="btn btn-primary btn-sm">Aggiungi</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div> 
-  </div>-->
+    </div>
+  </div>
 </template>
 
 <style scoped>

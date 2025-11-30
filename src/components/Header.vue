@@ -1,9 +1,9 @@
 <script>
-import Searchbar from "./Searchbar.vue";
-import Logo from "./Logo.vue";
-import Navbar from "./Navbar.vue";
-import HeaderRight from "./HeaderRight.vue";
-import BurgerMenù from "./BurgerMenù.vue";
+import Searchbar from "./Header/Searchbar.vue";
+import Logo from "./Header/Logo.vue";
+import Navbar from "./Header/Navbar.vue";
+import HeaderRight from "./Header/HeaderRight.vue";
+import BurgerMenù from "./Header/BurgerMenù.vue";
 import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
 
 const headerEl = ref(null);
@@ -43,7 +43,7 @@ export default {
       >
         <!-- Lato sinistro -->
         <div class="col-4 d-flex align-items-center">
-          <div class="d-none d-md-block flex-grow-1 mx-3">
+          <div class="d-none d-md-block flex-grow-2 mx-3">
             <Searchbar />
           </div>
           <div class="d-block d-md-none flex-grow-1 mx-3">
@@ -68,11 +68,6 @@ export default {
       </div>
     </div>
   </header>
-
-  <!-- Contenuto principale -->
-  <main :style="{ paddingTop: headerHeight + 'px' }">
-    <slot></slot>
-  </main>
 </template>
 
 <style scoped>

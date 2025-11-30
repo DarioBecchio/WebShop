@@ -1,5 +1,5 @@
 <script>
-import { store } from "../../store.js";
+import { store } from "../../stores/product";
 export default {
   name: "Searchbar",
   data() {

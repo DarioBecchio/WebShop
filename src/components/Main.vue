@@ -1,5 +1,6 @@
 <script>
 import Jumbotron from "./Main/Jumbotron.vue";
+
 export default {
   name: "Main",
   components: {
@@ -12,10 +13,9 @@ export default {
   <main>
     <!-- Section 1 -->
     <section
-      class="vh-100 d-flex flex-column justify-content-center align-items-center bg-primary text-white"
+      class="vh-100 d-flex flex-column justify-content-center align-items-center"
     >
-      <h2>Section 1</h2>
-      <p>Contenuto della prima sezione</p>
+      <Jumbotron></Jumbotron>
     </section>
 
     <!-- Section 2 -->
@@ -36,9 +36,4 @@ export default {
   </main>
 </template>
 
-<style scoped>
-main {
-  width: 100%;
-  margin-top: 1rem;
-}
-</style>
+<style scoped></style>

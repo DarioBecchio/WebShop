@@ -54,6 +54,7 @@ li {
 
 @media (max-width: 768px) {
   /* Contenitore nav scrollabile */
+
   .nav-link {
     padding: 0.2rem 0.4rem !important;
     font-size: 0.75rem !important;
@@ -63,6 +64,28 @@ li {
   .navbar {
     padding-top: 0.1rem !important;
     padding-bottom: 0.1rem !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navbar {
+    padding-top: 0.2rem !important;
+    padding-bottom: 0.2rem !important;
+  }
+
+  .navbar-nav {
+    flex-wrap: nowrap !important; /* tutto su una singola riga */
+  }
+
+  .nav-link {
+    font-size: 0.8rem !important; /* riduce ingombro */
+    padding: 0.2rem 0.5rem !important;
+    white-space: nowrap; /* evita l’andare a capo */
+  }
+
+  /* Se hai <li> con padding, riducilo */
+  .navbar-nav li {
+    padding: 0.5rem !important;
   }
 }
 </style>
