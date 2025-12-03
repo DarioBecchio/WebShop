@@ -1,6 +1,18 @@
 <script>
+import { onMounted } from "vue";
+import { useProductStore } from "../stores/product";
 export default {
   name: "Category",
+
+  setup() {
+    const store = useProductStore();
+
+    onMounted(() => {
+      store.fetchProducts();
+    });
+
+    return { store };
+  },
 };
 </script>
 
@@ -11,12 +23,12 @@ export default {
 
     <div class="row g-3">
       <div
-        v-for="p in products"
+        v-for="p in store.products"
         :key="p.id"
         class="col-12 col-md-3 col-lg-2-4 col-xl-2-4 custom-col layout"
       >
         <div class="card h-100 shadow-sm">
-          <img :src="p.image" class="card-img-top" :alt="p.title" />
+          <img :src="p.images" class="card-img-top" :alt="p.title" />
 
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">{{ p.title }}</h5>

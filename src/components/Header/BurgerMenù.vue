@@ -1,11 +1,11 @@
 <script>
-import { store } from "../../stores/product";
+import { useMainStore } from "../../stores/product";
 export default {
   name: "BurgerMenù",
   data() {
     return {
       isOpen: false,
-      store,
+      useMainStore,
       categories: [
         "Make up",
         "Profumi",

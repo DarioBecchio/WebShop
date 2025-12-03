@@ -1,10 +1,10 @@
 <script>
-import { store } from "../../stores/product";
+import { useMainStore } from "../../stores/product";
 export default {
   name: "Searchbar",
   data() {
     return {
-      store,
+      useMainStore,
     };
   },
   methods: {
@@ -12,7 +12,7 @@ export default {
       // Naviga verso la pagina dei risultati passando il testo della ricerca come query
       this.$router.push({
         path: "/searchresults",
-        query: { q: this.store.searchtext },
+        query: { q: this.useMainStore.searchtext },
       });
     },
   },
@@ -25,7 +25,7 @@ export default {
       class="form-control"
       type="text"
       placeholder="Cerca..."
-      v-model="store.searchtext"
+      v-model="useMainStore.searchtext"
       @keyup.enter="test"
     />
     <i class="fa-solid fa-magnifying-glass"></i>
