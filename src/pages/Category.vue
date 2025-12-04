@@ -1,17 +1,19 @@
 <script>
 import { onMounted } from "vue";
 import { useProductStore } from "../stores/product";
+import { useCartStore } from "../stores/cart";
 export default {
   name: "Category",
 
   setup() {
     const store = useProductStore();
+    const cart = useCartStore();
 
     onMounted(() => {
       store.fetchProducts();
     });
 
-    return { store };
+    return { store, cart };
   },
 };
 </script>
@@ -38,7 +40,9 @@ export default {
               class="mt-auto d-flex justify-content-between align-items-center"
             >
               <strong>€{{ p.price }}</strong>
-              <button class="btn btn-primary btn-sm">Aggiungi</button>
+              <button class="btn btn-primary btn-sm" @click="cart.addToCart(p)">
+                Aggiungi
+              </button>
             </div>
           </div>
         </div>
