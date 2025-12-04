@@ -1,6 +1,47 @@
 <script>
+import { ref } from "vue";
+import { useAuthStore } from "../stores/auth";
+
 export default {
   name: "Account",
+  setup() {
+    const auth = useAuthStore();
+
+    const showRegister = ref(false);
+    const showLogin = ref(false);
+
+    const registerForm = ref({ name: "", email: "", password: "" });
+    const loginForm = ref({ email: "", password: "" });
+
+    const registerUser = () => {
+      auth.register(registerForm.value);
+      showRegister.value = false;
+    };
+
+    const loginUser = () => {
+      auth.login(loginForm.value);
+      showLogin.value = false;
+    };
+
+    const goToRegister = () => {
+      showRegister.value = true;
+    };
+
+    const goToLogin = () => {
+      showLogin.value = true;
+    };
+
+    return {
+      showRegister,
+      showLogin,
+      registerForm,
+      loginForm,
+      registerUser,
+      loginUser,
+      goToLogin,
+      goToRegister,
+    };
+  },
 };
 </script>
 
@@ -37,7 +78,90 @@ export default {
         </div>
       </div>
     </div>
+
+    <!-- MODALE REGISTRAZIONE -->
+    <div class="modal fade show d-block" v-if="showRegister">
+      <div class="modal-dialog">
+        <div class="modal-content p-3">
+          <div class="modal-header">
+            <h5 class="modal-title">Registrati</h5>
+            <button class="btn-close" @click="showRegister = false"></button>
+          </div>
+
+          <div class="modal-body">
+            <input
+              v-model="registerForm.name"
+              type="text"
+              class="form-control mb-2"
+              placeholder="Nome"
+            />
+            <input
+              v-model="registerForm.email"
+              type="email"
+              class="form-control mb-2"
+              placeholder="Email"
+            />
+            <input
+              v-model="registerForm.password"
+              type="password"
+              class="form-control mb-2"
+              placeholder="Password"
+            />
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" @click="showRegister = false">
+              Chiudi
+            </button>
+            <button class="btn btn-primary" @click="registerUser">
+              Crea account
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODALE LOGIN -->
+    <div class="modal fade show d-block" v-if="showLogin">
+      <div class="modal-dialog">
+        <div class="modal-content p-3">
+          <div class="modal-header">
+            <h5 class="modal-title">Accedi</h5>
+            <button class="btn-close" @click="showLogin = false"></button>
+          </div>
+
+          <div class="modal-body">
+            <input
+              v-model="loginForm.email"
+              type="email"
+              class="form-control mb-2"
+              placeholder="Email"
+            />
+            <input
+              v-model="loginForm.password"
+              type="password"
+              class="form-control mb-2"
+              placeholder="Password"
+            />
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" @click="showLogin = false">
+              Chiudi
+            </button>
+            <button class="btn btn-primary" @click="loginUser">Accedi</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 
-<style></style>
+<style>
+.modal {
+  background: rgba(0, 0, 0, 0.6);
+}
+.modal-dialog {
+  margin-top: 10vh;
+}
+</style>
