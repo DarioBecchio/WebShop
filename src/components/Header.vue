@@ -6,23 +6,6 @@ import HeaderRight from "./Header/HeaderRight.vue";
 import BurgerMenù from "./Header/BurgerMenù.vue";
 import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
 
-const headerEl = ref(null);
-const headerHeight = ref(0);
-
-const updateHeaderHeight = () => {
-  headerHeight.value = headerEl.value?.offsetHeight || 0;
-};
-
-// Aggiorna altezza dopo il montaggio e ogni resize
-onMounted(async () => {
-  await nextTick();
-  updateHeaderHeight();
-  window.addEventListener("resize", updateHeaderHeight);
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener("resize", updateHeaderHeight);
-});
 export default {
   name: "Header",
   components: {
@@ -31,6 +14,31 @@ export default {
     Navbar,
     HeaderRight,
     BurgerMenù,
+  },
+
+  setup() {
+    const headerEl = ref(null);
+    const headerHeight = ref(0);
+
+    const updateHeaderHeight = () => {
+      headerHeight.value = headerEl.value?.offsetHeight || 0;
+    };
+
+    // Aggiorna altezza dopo il montaggio e ogni resize
+    onMounted(async () => {
+      await nextTick();
+      updateHeaderHeight();
+      window.addEventListener("resize", updateHeaderHeight);
+    });
+
+    onBeforeUnmount(() => {
+      window.removeEventListener("resize", updateHeaderHeight);
+    });
+
+    return {
+      headerEl,
+      headerHeight,
+    };
   },
 };
 </script>

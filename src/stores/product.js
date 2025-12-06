@@ -11,7 +11,7 @@ export const useMainStore = defineStore('main', {
 
 })
 
-
+console.log("useMainStore import:", useMainStore.searchtext);
 
 export const useProductStore = defineStore('products', {
     state: () => ({

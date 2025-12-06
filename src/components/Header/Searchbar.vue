@@ -2,12 +2,20 @@
 import { useMainStore } from "../../stores/product";
 export default {
   name: "Searchbar",
-  data() {
+  setup() {
+    const main = useMainStore();
+
+    const search = () => {
+      window.location.href = "/searchresults?q=" + main.searchtext;
+    };
+
     return {
-      useMainStore,
+      main,
+      search,
     };
   },
-  methods: {
+
+  /* methods: {
     test() {
       // Naviga verso la pagina dei risultati passando il testo della ricerca come query
       this.$router.push({
@@ -15,7 +23,7 @@ export default {
         query: { q: this.useMainStore.searchtext },
       });
     },
-  },
+  }, */
 };
 </script>
 
@@ -25,8 +33,8 @@ export default {
       class="form-control"
       type="text"
       placeholder="Cerca..."
-      v-model="useMainStore.searchtext"
-      @keyup.enter="test"
+      v-model="main.searchtext"
+      @keyup.enter="search"
     />
     <i class="fa-solid fa-magnifying-glass"></i>
   </div>
