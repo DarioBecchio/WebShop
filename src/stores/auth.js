@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 
 export const useAuthStore = defineStore("auth", {
     state: () => ({
-        users: [], // lista utenti registrati
+        users: [],
         currentUser: null,
     }),
 
@@ -19,6 +19,8 @@ export const useAuthStore = defineStore("auth", {
 
             this.users.push({ ...data });
             alert("Registrazione completata!");
+            console.log(users);
+
         },
 
 
@@ -37,5 +39,8 @@ export const useAuthStore = defineStore("auth", {
             this.currentUser = user;
             alert("Login effettuato!");
         },
+
     },
+
+
 });
