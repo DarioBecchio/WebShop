@@ -1,29 +1,29 @@
 <script>
 import { useMainStore } from "../../stores/product";
+
 export default {
   name: "Searchbar",
-  setup() {
-    const main = useMainStore();
 
-    const search = () => {
-      window.location.href = "/searchresults?q=" + main.searchtext;
-    };
-
+  data() {
     return {
-      main,
-      search,
+      main: useMainStore(),
     };
   },
 
-  /* methods: {
+  methods: {
+    search() {
+      window.location.href = "/searchresults?q=" + this.main.searchtext;
+    },
+
+    /* Esempio alternativo usando il router:
     test() {
-      // Naviga verso la pagina dei risultati passando il testo della ricerca come query
       this.$router.push({
         path: "/searchresults",
-        query: { q: this.useMainStore.searchtext },
+        query: { q: this.main.searchtext },
       });
     },
-  }, */
+    */
+  },
 };
 </script>
 

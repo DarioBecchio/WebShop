@@ -1,46 +1,39 @@
 <script>
-import { ref } from "vue";
 import { useAuthStore } from "../stores/auth";
 
 export default {
   name: "Account",
-  setup() {
-    const auth = useAuthStore();
 
-    const showRegister = ref(false);
-    const showLogin = ref(false);
-
-    const registerForm = ref({ name: "", email: "", password: "" });
-    const loginForm = ref({ email: "", password: "" });
-
-    const registerUser = () => {
-      auth.register(registerForm.value);
-      showRegister.value = false;
-    };
-
-    const loginUser = () => {
-      auth.login(loginForm.value);
-      showLogin.value = false;
-    };
-
-    const goToRegister = () => {
-      showRegister.value = true;
-    };
-
-    const goToLogin = () => {
-      showLogin.value = true;
-    };
-
+  data() {
     return {
-      showRegister,
-      showLogin,
-      registerForm,
-      loginForm,
-      registerUser,
-      loginUser,
-      goToLogin,
-      goToRegister,
+      auth: useAuthStore(),
+
+      showRegister: false,
+      showLogin: false,
+
+      registerForm: { name: "", email: "", password: "" },
+      loginForm: { email: "", password: "" },
     };
+  },
+
+  methods: {
+    registerUser() {
+      this.auth.register(this.registerForm);
+      this.showRegister = false;
+    },
+
+    loginUser() {
+      this.auth.login(this.loginForm);
+      this.showLogin = false;
+    },
+
+    goToRegister() {
+      this.showRegister = true;
+    },
+
+    goToLogin() {
+      this.showLogin = true;
+    },
   },
 };
 </script>

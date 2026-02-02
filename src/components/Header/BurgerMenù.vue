@@ -1,11 +1,13 @@
 <script>
 import { useMainStore } from "../../stores/product";
+
 export default {
-  name: "BurgerMenù",
+  name: "BurgerMenu",
+
   data() {
     return {
+      store: useMainStore(),
       isOpen: false,
-      useMainStore,
       categories: [
         "Make up",
         "Profumi",
@@ -16,20 +18,25 @@ export default {
       ],
     };
   },
+
   methods: {
     toggleMenu() {
-      this.isOpen = !this.isOpen; // apre/chiude il menu
+      this.isOpen = !this.isOpen;
     },
+
     closeMenu() {
       this.isOpen = false;
     },
-    test() {
-      if (!this.$router) return;
-      // Naviga verso la pagina dei risultati passando il testo della ricerca come query
+
+    search() {
+      if (!this.store.searchtext) return;
+
       this.$router.push({
         path: "/searchresults",
-        query: { q: this.store.searchtext || "" },
+        query: { q: this.store.searchtext },
       });
+
+      this.closeMenu();
     },
   },
 };
@@ -56,7 +63,7 @@ export default {
           class="form-control mb-3"
           placeholder="Cerca..."
           v-model="store.searchtext"
-          @keyup.enter="test"
+          @keyup.enter="search"
         />
 
         <!-- Elenco categorie mobile -->

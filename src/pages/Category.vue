@@ -2,18 +2,19 @@
 import { onMounted } from "vue";
 import { useProductStore } from "../stores/product";
 import { useCartStore } from "../stores/cart";
+
 export default {
   name: "Category",
 
-  setup() {
-    const store = useProductStore();
-    const cart = useCartStore();
+  data() {
+    return {
+      store: useProductStore(),
+      cart: useCartStore(),
+    };
+  },
 
-    onMounted(() => {
-      store.fetchProducts();
-    });
-
-    return { store, cart };
+  mounted() {
+    this.store.fetchProducts();
   },
 };
 </script>
