@@ -19,7 +19,7 @@ export const useAuthStore = defineStore("auth", {
 
             this.users.push({ ...data });
             alert("Registrazione completata!");
-            console.log(users);
+            console.log(this.users);
 
         },
 

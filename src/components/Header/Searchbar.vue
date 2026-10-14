@@ -12,7 +12,7 @@ export default {
 
   methods: {
     search() {
-      window.location.href = "/searchresults?q=" + this.main.searchtext;
+      this.$router.push("/searchresults?q=" + this.main.searchtext);
     },
 
     /* Esempio alternativo usando il router:

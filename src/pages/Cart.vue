@@ -28,10 +28,10 @@ export default {
 
     <div v-if="cartItems.length">
       <div v-for="item in cartItems" :key="item.id" class="cart-item">
-        <img :src="item.image" :alt="item.name" class="product-image" />
+        <img :src="item.thumbnail" :alt="item.title" class="product-image" />
 
         <div class="item-info">
-          <h3>{{ item.name }}</h3>
+          <h3>{{ item.title }}</h3>
           <p>Quantità: {{ item.qty }}</p>
           <p>Prezzo: {{ item.price }} €</p>
           <p class="item-total">Subtotale: {{ item.qty * item.price }} €</p>

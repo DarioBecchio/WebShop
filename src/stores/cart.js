@@ -22,10 +22,10 @@ export const useCartStore = defineStore("cart", {
                     id: product.id,
                     title: product.title,
                     price: product.price,
-                    image: product.images,
+                    thumbnail: product.thumbnail,
                     qty: 1,
                 });
-            } console.log(items);
+            } console.log(this.items);
         },
 
         removeFromCart(id) {

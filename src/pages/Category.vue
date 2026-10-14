@@ -1,11 +1,11 @@
 <script>
-import { onMounted } from "vue";
 import { useProductStore } from "../stores/product";
-import { useCartStore } from "../stores/cart";
+//import { useCartStore } from "../stores/cart";
+import Card from "../components/Card.vue";
 
 export default {
   name: "Category",
-
+  components: { Card },
   data() {
     return {
       store: useProductStore(),
@@ -26,29 +26,11 @@ export default {
 
     <div class="row g-3">
       <div
-        v-for="p in store.products"
         :key="p.id"
-        class="col-12 col-md-3 col-lg-2-4 col-xl-2-4 custom-col layout"
-      >
-        <div class="card h-100 shadow-sm">
-          <img :src="p.images" class="card-img-top" :alt="p.title" />
-
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">{{ p.title }}</h5>
-            <p class="card-text text-muted">{{ p.description }}</p>
-
-            <div
-              class="mt-auto d-flex justify-content-between align-items-center"
-            >
-              <strong>€{{ p.price }}</strong>
-              <button class="btn btn-primary btn-sm" @click="cart.addToCart(p)">
-                Aggiungi
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+        class="row row-cols-1 row-cols-md-4 row-cols-lg-5 g-3"
+      ></div>
     </div>
+    <Card :product="p"></Card>
   </div>
 </template>
 
