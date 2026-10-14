@@ -9,7 +9,6 @@ export default {
   data() {
     return {
       store: useProductStore(),
-      cart: useCartStore(),
     };
   },
 
@@ -23,14 +22,11 @@ export default {
   <div class="container py-4 layout">
     <h1 class="mb-4">Catalogo Prodotti</h1>
     <p class="text-muted mb-4">Griglia responsive: 5 / 4 / 1 come richiesto.</p>
-
-    <div class="row g-3">
-      <div
-        :key="p.id"
-        class="row row-cols-1 row-cols-md-4 row-cols-lg-5 g-3"
-      ></div>
+    <div class="row row-cols-1 row-cols-md-4 row-cols-lg-5 g-3">
+      <div v-for="p in store.products" :key="p.id" class="col">
+        <Card :product="p" />
+      </div>
     </div>
-    <Card :product="p"></Card>
   </div>
 </template>
 

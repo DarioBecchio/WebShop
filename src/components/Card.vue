@@ -8,46 +8,37 @@ export default {
 </script>
 
 <template>
-  <div class="container my-5">
-    <div class="row g-4">
-      <div
-        class="col-md-6 col-lg-3"
-        v-for="product in Object"
-        :key="product.id"
-      >
-        <div class="card h-100 shadow-sm">
-          <img
-            :src="product.image"
-            class="card-img-top"
-            :alt="product.title"
-            style="object-fit: cover; height: 180px"
-          />
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">{{ product.title }}</h5>
-            <p class="card-text small text-muted mb-1">
-              <strong>Marca:</strong> {{ product.brand }}
-            </p>
-            <p class="card-text flex-grow-1">{{ product.description }}</p>
+  <div class="card h-100 shadow-sm">
+    <img
+      :src="product.thumbnail"
+      class="card-img-top"
+      :alt="product.title"
+      style="object-fit: cover; height: 180px"
+    />
 
-            <div class="mt-auto">
-              <p class="mb-1">
-                <span
-                  class="badge bg-secondary me-1"
-                  v-for="tag in product.tags"
-                  :key="tag"
-                >
-                  {{ tag }}
-                </span>
-              </p>
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">{{ product.title }}</h5>
+      <p class="card-text small text-muted mb-1">
+        <strong>Marca:</strong> {{ product.brand }}
+      </p>
+      <p class="card-text flex-grow-1">{{ product.description }}</p>
 
-              <p class="fw-bold mb-2">
-                {{ product.price.toFixed(2) }}
-              </p>
+      <div class="mt-auto">
+        <p class="mb-1">
+          <span
+            class="badge bg-secondary me-1"
+            v-for="tag in product.tags"
+            :key="tag"
+          >
+            {{ tag }}
+          </span>
+        </p>
 
-              <button class="btn btn-primary w-100">Acquista</button>
-            </div>
-          </div>
-        </div>
+        <p class="fw-bold mb-2">
+          {{ product.price.toFixed(2) + " €" }}
+        </p>
+
+        <button class="btn btn-primary w-100">Acquista</button>
       </div>
     </div>
   </div>
